@@ -1,4 +1,7 @@
+import java.util.AbstractList;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Account {
     private int AccountId;
@@ -7,19 +10,34 @@ public class Account {
 
     private String FullName;
 
-    private int DepartmentId;
+    private Department departmentId;
 
-    private int PositionId;
+    private Position positionId;
 
     private Date createDate;
 
-    public Account(int accountId, String email, String userName, String fullName, int departmentId, int positionId, Date createDate) {
+    private List<Group> groups = new ArrayList<>();
+
+    public List<Group> getGroups() {
+        return groups;
+    }
+
+
+
+    public void addGroup(Group group){
+        groups.add(group);
+    }
+
+    public Account() {
+    }
+
+    public Account(int accountId, String email, String userName, String fullName, Department departmentId, Position positionId, Date createDate) {
         AccountId = accountId;
         Email = email;
         UserName = userName;
         FullName = fullName;
-        DepartmentId = departmentId;
-        PositionId = positionId;
+        this.departmentId = departmentId;
+        this.positionId = positionId;
         this.createDate = createDate;
     }
 
@@ -27,52 +45,52 @@ public class Account {
         return AccountId;
     }
 
-    public String getEmail() {
-        return Email;
-    }
-
-    public String getUserName() {
-        return UserName;
-    }
-
-    public String getFullName() {
-        return FullName;
-    }
-
-    public int getDepartmentId() {
-        return DepartmentId;
-    }
-
-    public int getPositionId() {
-        return PositionId;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
     public void setAccountId(int accountId) {
         AccountId = accountId;
+    }
+
+    public String getEmail() {
+        return Email;
     }
 
     public void setEmail(String email) {
         Email = email;
     }
 
+    public String getUserName() {
+        return UserName;
+    }
+
     public void setUserName(String userName) {
         UserName = userName;
+    }
+
+    public String getFullName() {
+        return FullName;
     }
 
     public void setFullName(String fullName) {
         FullName = fullName;
     }
 
-    public void setDepartmentId(int departmentId) {
-        DepartmentId = departmentId;
+    public Department getDepartmentId() {
+        return departmentId;
     }
 
-    public void setPositionId(int positionId) {
-        PositionId = positionId;
+    public void setDepartmentId(Department departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public Position getPositionId() {
+        return positionId;
+    }
+
+    public void setPositionId(Position positionId) {
+        this.positionId = positionId;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
     }
 
     public void setCreateDate(Date createDate) {
@@ -86,9 +104,11 @@ public class Account {
                 ", Email='" + Email + '\'' +
                 ", UserName='" + UserName + '\'' +
                 ", FullName='" + FullName + '\'' +
-                ", DepartmentId=" + DepartmentId +
-                ", PositionId=" + PositionId +
+                ", departmentId=" + departmentId +
+                ", positionId=" + positionId +
                 ", createDate=" + createDate +
                 '}';
     }
+
+
 }

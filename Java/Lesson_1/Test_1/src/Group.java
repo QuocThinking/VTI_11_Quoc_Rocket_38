@@ -1,58 +1,74 @@
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Group {
     private int GroupID;
-    private int AccountId;
+
+    private String GroupName;
+
     private int CreatorId;
 
     private Date CreateDate;
 
-    public Group(int groupID, int accountId, int creatorId, Date createDate) {
+    private List<Account> accounts ;
+
+    public Group(int groupID, String groupName, int creatorId, Date createDate) {
         GroupID = groupID;
-        AccountId = accountId;
+        GroupName = groupName;
         CreatorId = creatorId;
         CreateDate = createDate;
+
     }
 
     public int getGroupID() {
         return GroupID;
     }
 
-    public int getAccountId() {
-        return AccountId;
+    public void setGroupID(int groupID) {
+        GroupID = groupID;
+    }
+
+    public String getGroupName() {
+        return GroupName;
+    }
+
+    public void setGroupName(String groupName) {
+        GroupName = groupName;
     }
 
     public int getCreatorId() {
         return CreatorId;
     }
 
-    public Date getCreateDate() {
-        return CreateDate;
-    }
-
-    public void setGroupID(int groupID) {
-        GroupID = groupID;
-    }
-
-    public void setAccountId(int accountId) {
-        AccountId = accountId;
-    }
-
     public void setCreatorId(int creatorId) {
         CreatorId = creatorId;
+    }
+
+    public Date getCreateDate() {
+        return CreateDate;
     }
 
     public void setCreateDate(Date createDate) {
         CreateDate = createDate;
     }
 
+    public List<Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
+    }
+
     @Override
     public String toString() {
         return "Group{" +
                 "GroupID=" + GroupID +
-                ", AccountId=" + AccountId +
+                ", GroupName='" + GroupName + '\'' +
                 ", CreatorId=" + CreatorId +
                 ", CreateDate=" + CreateDate +
+                ", accounts=" + accounts +
                 '}';
     }
 }
